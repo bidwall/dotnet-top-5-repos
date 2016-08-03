@@ -1,0 +1,32 @@
+﻿@model WebApp.Models.UserDetailsViewModel
+
+<div class="page-header">
+    <h1>
+        <img src=@Model.AvatarUrl class="img-circle" alt="Image not available" width="50" height="50" />    
+        @Model.Name
+        <small>@Model.Location</small>
+    </h1>
+</div>
+
+<h3>Top 5 repos</h3>
+
+<div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th>Repo Name</th>
+                <th>Star Count</th>
+            </tr>
+            <tbody>
+             @{
+                 foreach (var repo in Model.Repos)
+                 {
+                     <tr>
+                         <td>@repo.Name</td>
+                         <td>@repo.StarGazers_Count</td>
+                     </tr>
+                 }
+             }
+            </tbody>
+        </table>
+</div>
+
