@@ -10,15 +10,15 @@ namespace Repositories.Test
     [TestFixture]
     public class GitHubRepositoryTests
     {
-        private readonly IHttpClientHelper _mockHttpClientHelper;
-        private readonly GitHubRepository _gitHubRepository;
+        private IHttpClientHelper _mockHttpClientHelper;
+        private GitHubRepository _gitHubRepository;
 
         private const string UserName = "username";
         private const string RepoUrl = "url";
         private readonly string _userUrl = $"{GitHubRepository.GitHubUri}/users/{UserName}";
-
-
-        public GitHubRepositoryTests()
+        
+        [SetUp]
+        public void SetUp()
         {
             _mockHttpClientHelper = Mock.Create<IHttpClientHelper>(Behavior.Strict);
             _gitHubRepository = new GitHubRepository(_mockHttpClientHelper);
