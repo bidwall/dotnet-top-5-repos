@@ -6,7 +6,7 @@ namespace Repositories
 {
     public class GitHubRepository : IRepository
     {
-        private const string GitHubUri = "https://api.github.com";
+        public const string GitHubUri = "https://api.github.com";
         private readonly IHttpClientHelper _gitHubHelper;
 
         public GitHubRepository(IHttpClientHelper gitHubHelper)

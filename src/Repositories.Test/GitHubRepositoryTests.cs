@@ -10,35 +10,38 @@ namespace Repositories.Test
     [TestFixture]
     public class GitHubRepositoryTests
     {
+        private readonly IHttpClientHelper _mockHttpClientHelper;
+        private readonly GitHubRepository _gitHubRepository;
+        private const string UserName = "username";
+        private const string Url = "url";
+
+
+        public GitHubRepositoryTests()
+        {
+            _mockHttpClientHelper = Mock.Create<IHttpClientHelper>(Behavior.Strict);
+            _gitHubRepository = new GitHubRepository(_mockHttpClientHelper);
+        }
+
         [Test]
         public void GetDetailsForUser_ConstructsGitHubUrl()
         {
             //Arrange
-            var mockHttpClientHelper = Mock.Create<IHttpClientHelper>(Behavior.Strict);
-            var gitHubRepository = new GitHubRepository(mockHttpClientHelper);
+            var url = $"{GitHubRepository.GitHubUri}/users/{UserName}";
 
-            var userName = "user";
-            var url = $"https://api.github.com/users/{userName}";
-
-            mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<User>(url)).Returns(new User());
+            _mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<User>(url)).Returns(new User());
 
             //Act
-            gitHubRepository.GetDetailsForUser(userName);
+            _gitHubRepository.GetDetailsForUser(UserName);
         }
 
         [Test]
         public void GetReposForUserFromUrl_GetReposForUrl()
         {
             //Arrange
-            var mockHttpClientHelper = Mock.Create<IHttpClientHelper>(Behavior.Strict);
-            var gitHubRepository = new GitHubRepository(mockHttpClientHelper);
-
-            var url = "url";
-
-            mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<IEnumerable<Repo>>(url)).Returns(new Repo[] {});
+            _mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<IEnumerable<Repo>>(Url)).Returns(new Repo[] {});
 
             //Act
-            var repos = gitHubRepository.GetReposForUserFromUrl(url);
+            _gitHubRepository.GetReposForUserFromUrl(Url);
         }
     }
 }
