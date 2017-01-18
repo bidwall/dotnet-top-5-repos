@@ -1,7 +1,6 @@
 
 Top5Repos
 ---------
-----------
 Developed as a simple solution to a job interview technical test.
 
 This is an ASP.net MVC 5 web application which lists the top five starred GitHub repositories, alongside some basic information for a given user.
