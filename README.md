@@ -1,5 +1,6 @@
+![alt tag](http://cdplayground.eastus.cloudapp.azure.com/app/rest/builds/buildType:(id:Top5Repos)/statusIcon)
 
-Top5Repos
+Top5Repos 
 ---------
 Developed as a simple solution to a job interview technical test.
 
