@@ -1,4 +1,4 @@
-![alt tag](http://cdplayground.eastus.cloudapp.azure.com/app/rest/builds/buildType:(id:Top5Repos)/statusIcon)
+![alt tag](http://cdplayground.eastus.cloudapp.azure.com/app/rest/builds/buildType:(id:Top5Repos_ReleaseBuild)/statusIcon)
 
 Top5Repos 
 ---------
