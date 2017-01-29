@@ -56,7 +56,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\HttpClientHelper\HttpClientHelpers.csproj">
+    <ProjectReference Include="..\HttpClientHelper\HttpClientHelpers.csproj">
       <Project>{fb7cb0f3-048c-49f1-bcb5-af72cdb0a53d}</Project>
       <Name>HttpClientHelpers</Name>
     </ProjectReference>
