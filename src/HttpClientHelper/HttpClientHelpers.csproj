@@ -52,8 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="GitHubHttpClientHelper.cs" />
+    <Compile Include="HttpClientConfig.cs" />
+    <Compile Include="HttpReponseProvider.cs" />
     <Compile Include="IHttpClientHelper.cs" />
+    <Compile Include="IHttpReponseProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

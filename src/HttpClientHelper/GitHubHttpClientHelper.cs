@@ -1,34 +1,29 @@
 ﻿using System;
-using System.Net.Http;
+using System.Collections.Generic;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace HttpClientHelpers
 {
     public class GitHubHttpClientHelper : IHttpClientHelper
     {
-        public T GetDataFromUrl<T>(string url)
+        private readonly IHttpReponseProvider _httpReponseProvider;
+
+        public GitHubHttpClientHelper(IHttpReponseProvider httpReponseProvider)
         {
-            return GetHttpResponse<T>(url).Result;
+            _httpReponseProvider = httpReponseProvider;
         }
 
-        private static async Task<T> GetHttpResponse<T>(string requestUri)
+        public T GetDataFromUrl<T>(string url)
         {
-            HttpResponseMessage httpResponseMessage;
-
-            using (var client = new HttpClient())
+            var httpClientConfig = new HttpClientConfig
             {
-                client.BaseAddress = new Uri(requestUri);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "");
+                BaseAddress = new Uri(url),
+                RequestUri = string.Empty
+            };
+            httpClientConfig.AcceptHeaders.Add(new MediaTypeWithQualityHeaderValue(Constants.JsonContentType));
+            httpClientConfig.UserAgentHeaders.Add(new KeyValuePair<string, string>(Constants.UserAgentHeaderKey, string.Empty));
 
-                httpResponseMessage = await client.GetAsync("").ConfigureAwait(false);
-            }
-
-            if (!httpResponseMessage.IsSuccessStatusCode) return await Task.FromResult(default(T));
-
-            return await httpResponseMessage.Content.ReadAsAsync<T>();
+            return _httpReponseProvider.GetResponse<T>(httpClientConfig).Result;
         }
     }
 }
