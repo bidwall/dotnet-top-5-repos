@@ -14,6 +14,7 @@ namespace WebApp
 
             container.Register<IRepository, GitHubRepository>();
             container.Register<IHttpClientHelper, GitHubHttpClientHelper>();
+            container.Register<IHttpResponseProvider, HttpResponseProvider>();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
         }
