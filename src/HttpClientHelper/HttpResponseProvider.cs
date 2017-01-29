@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace HttpClientHelpers
 {
-    public class HttpReponseProvider : IHttpReponseProvider
+    public class HttpResponseProvider : IHttpResponseProvider
     {
         public async Task<T> GetResponse<T>(HttpClientConfig httpClientConfig)
         {

@@ -2,7 +2,7 @@
 
 namespace HttpClientHelpers
 {
-    public interface IHttpReponseProvider
+    public interface IHttpResponseProvider
     {
         Task<T> GetResponse<T>(HttpClientConfig httpClientConfig);
     }
