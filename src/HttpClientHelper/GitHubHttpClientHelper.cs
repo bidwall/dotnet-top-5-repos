@@ -6,9 +6,9 @@ namespace HttpClientHelpers
 {
     public class GitHubHttpClientHelper : IHttpClientHelper
     {
-        private readonly IHttpReponseProvider _httpReponseProvider;
+        private readonly IHttpResponseProvider _httpReponseProvider;
 
-        public GitHubHttpClientHelper(IHttpReponseProvider httpReponseProvider)
+        public GitHubHttpClientHelper(IHttpResponseProvider httpReponseProvider)
         {
             _httpReponseProvider = httpReponseProvider;
         }

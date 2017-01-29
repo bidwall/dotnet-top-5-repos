@@ -55,9 +55,9 @@
     <Compile Include="Constants.cs" />
     <Compile Include="GitHubHttpClientHelper.cs" />
     <Compile Include="HttpClientConfig.cs" />
-    <Compile Include="HttpReponseProvider.cs" />
+    <Compile Include="HttpResponseProvider.cs" />
     <Compile Include="IHttpClientHelper.cs" />
-    <Compile Include="IHttpReponseProvider.cs" />
+    <Compile Include="IHttpResponseProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

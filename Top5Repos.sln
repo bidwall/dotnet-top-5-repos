@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "src\WebApp\WebApp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories.Test", "src\Repositories.Test\Repositories.Test.csproj", "{349F62DA-EE70-4F05-96CF-CAD5381B0C64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientHelpers.Test", "HttpClientHelpers.Test\HttpClientHelpers.Test.csproj", "{F58C9C23-7B8A-4CCC-9EAC-756D9E250DEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClientHelpers.Test", "src\HttpClientHelpers.Test\HttpClientHelpers.Test.csproj", "{F58C9C23-7B8A-4CCC-9EAC-756D9E250DEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
