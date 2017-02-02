@@ -1,4 +1,6 @@
 ﻿
-<div>
-    @Html.ActionLink("<< Search", "Index", "Search")
+<div class="text-center">
+    <button type="button" class="btn btn-primary" aria-label="Left Align" onclick="location.href='@Url.Action("Index", "Search")'" >
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+    </button>
 </div>
