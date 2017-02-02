@@ -11,11 +11,13 @@
 <h3>Top 5 repos</h3>
 
 <div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>Repo Name</th>
-            <th>Star Count</th>
-        </tr>
+    <table class="table">
+        <thead>
+            <tr class="background-aliceblue">
+                <th>Repo Name</th>
+                <th>Star Count</th>
+            </tr>
+        </thead>
         <tbody>
         @{
             foreach (var repo in Model.Repos)
