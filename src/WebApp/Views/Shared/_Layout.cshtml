@@ -12,7 +12,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Developed by Palvinder Bidwall - v.@ViewContext.Controller.GetType().Assembly.GetName().Version.ToString(3)</p>
+            <p>&copy; @DateTime.Now.Year - Developed by Palvinder Bidwall - @($"v{ViewContext.Controller.GetType().Assembly.GetName().Version.ToString(3)}")</p>
         </footer>
     </div>
 
