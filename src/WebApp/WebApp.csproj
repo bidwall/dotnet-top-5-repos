@@ -189,7 +189,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\Search\UserRepos.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\BackToSearch.cshtml" />
     <Content Include="Views\Users\NoResultsFound.cshtml" />
