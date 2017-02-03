@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FluentAssertions;
 using HttpClientHelpers;
 using Models;
 using NUnit.Framework;
@@ -46,7 +47,7 @@ namespace Repositories.Test
             var user = _gitHubRepository.GetDetailsForUser(UserName);
 
             //Assert
-            Assert.That(user.Name, Is.EqualTo(testUser.Name));
+            user.Name.Should().Be(testUser.Name);
         }
 
         [Test]
@@ -70,7 +71,7 @@ namespace Repositories.Test
             var repos = _gitHubRepository.GetReposForUserFromUrl(RepoUrl);
 
             //Assert
-            Assert.That(repos, Is.EquivalentTo(testRepos));
+            repos.Should().BeEquivalentTo(testRepos);
         }
     }
 }
