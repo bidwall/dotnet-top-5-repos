@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using FluentAssertions;
 using NUnit.Framework;
 using WebApp.Controllers;
 using WebApp.Models;
@@ -26,8 +27,8 @@ namespace WebApp.Test
             var result = _searchController.Index(new SearchViewModel()) as ViewResult;
 
             //Assert
-            Assert.That(result, Is.Not.Null);
-            Assert.That(string.IsNullOrEmpty(result.ViewName), Is.True);
+            result.Should().NotBeNull();
+            result.ViewName.Should().BeNullOrEmpty();
         }
 
         [Test]
@@ -40,9 +41,9 @@ namespace WebApp.Test
             var result = _searchController.Index(new SearchViewModel()) as RedirectToRouteResult;
 
             //Assert
-            Assert.That(result, Is.Not.Null);
-            Assert.That(result.RouteValues["action"], Is.EqualTo("Index"));
-            Assert.That(result.RouteValues["controller"], Is.EqualTo("Users"));
+            result.Should().NotBeNull();            
+            result.RouteValues.Should().Contain("action", "Index");
+            result.RouteValues.Should().Contain("controller", "Users");
         }
     }
 }
