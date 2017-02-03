@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using FizzWare.NBuilder;
 using FluentAssertions;
 using HttpClientHelpers;
 using Models;
@@ -39,7 +40,7 @@ namespace Repositories.Test
         public void GetDetailsForUser_ReturnsUser()
         {
             //Arrange
-            var testUser = new User{Name = "Test"};
+            var testUser = Builder<User>.CreateNew().Build();
 
             _mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<User>(Arg.AnyString)).Returns(testUser);
 
@@ -64,7 +65,7 @@ namespace Repositories.Test
         public void GetReposForUserFromUrl_ReturnsRepos()
         {
             //Arrange
-            IEnumerable<Repo> testRepos = new[] { new Repo{ Name = "Test" } };
+            var testRepos = Builder<Repo>.CreateListOfSize(1).Build();
             _mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<IEnumerable<Repo>>(Arg.AnyString)).Returns(testRepos);
 
             //Act
