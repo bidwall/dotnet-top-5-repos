@@ -3,16 +3,15 @@ using FizzWare.NBuilder;
 using FluentAssertions;
 using HttpClientHelpers;
 using Models;
+using Moq;
 using NUnit.Framework;
-using Telerik.JustMock;
-using Telerik.JustMock.Helpers;
 
 namespace Repositories.Test
 {
     [TestFixture]
     public class GitHubRepositoryTests
     {
-        private IHttpClientHelper _mockHttpClientHelper;
+        private Mock<IHttpClientHelper> _mockHttpClientHelper;
         private GitHubRepository _gitHubRepository;
 
         private const string UserName = "username";
@@ -22,18 +21,18 @@ namespace Repositories.Test
         [SetUp]
         public void SetUp()
         {
-            _mockHttpClientHelper = Mock.Create<IHttpClientHelper>(Behavior.Strict);
-            _gitHubRepository = new GitHubRepository(_mockHttpClientHelper);
+            _mockHttpClientHelper = new Mock<IHttpClientHelper>();
+            _gitHubRepository = new GitHubRepository(_mockHttpClientHelper.Object);
         }
 
         [Test]
         public void GetDetailsForUser_ConstructsGitHubUrl()
         {
-            //Arrange
-            _mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<User>(_userUrl)).Returns(new User());
-
             //Act
             _gitHubRepository.GetDetailsForUser(UserName);
+
+            //Assert
+            _mockHttpClientHelper.Verify(x => x.GetDataFromUrl<User>(_userUrl), Times.Once);
         }
 
         [Test]
@@ -41,9 +40,8 @@ namespace Repositories.Test
         {
             //Arrange
             var testUser = Builder<User>.CreateNew().Build();
-
-            _mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<User>(Arg.AnyString)).Returns(testUser);
-
+            _mockHttpClientHelper.Setup(x => x.GetDataFromUrl<User>(It.IsAny<string>())).Returns(testUser);
+            
             //Act
             var user = _gitHubRepository.GetDetailsForUser(UserName);
 
@@ -54,11 +52,11 @@ namespace Repositories.Test
         [Test]
         public void GetReposForUserFromUrl_GetReposForUrl()
         {
-            //Arrange
-            _mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<IEnumerable<Repo>>(RepoUrl)).Returns(new Repo[] {});
-
             //Act
             _gitHubRepository.GetReposForUserFromUrl(RepoUrl);
+
+            //Assert
+            _mockHttpClientHelper.Verify(x => x.GetDataFromUrl<IEnumerable<Repo>>(RepoUrl), Times.Once);
         }
 
         [Test]
@@ -66,7 +64,7 @@ namespace Repositories.Test
         {
             //Arrange
             var testRepos = Builder<Repo>.CreateListOfSize(1).Build();
-            _mockHttpClientHelper.Arrange(x => x.GetDataFromUrl<IEnumerable<Repo>>(Arg.AnyString)).Returns(testRepos);
+            _mockHttpClientHelper.Setup(x => x.GetDataFromUrl<IEnumerable<Repo>>(It.IsAny<string>())).Returns(testRepos);
 
             //Act
             var repos = _gitHubRepository.GetReposForUserFromUrl(RepoUrl);
