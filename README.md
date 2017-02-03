@@ -13,7 +13,8 @@ This solution uses...
 - C#
 - ASP.net
 - MVC 5
-- Unity IoC
+- SimpleInjector
 - NUnit
-- JustMock
-
+- Moq
+- FluentAssertions
+- nBuilder
