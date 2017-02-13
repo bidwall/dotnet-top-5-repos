@@ -56,6 +56,6 @@ gulp.task('default', ['clean'], function() {
     gulp.start('build');
 });
 
-
-// Watches
-gulp.watch('Content/site.css', ['styles']);
+gulp.task('watch', function() {
+    gulp.watch('Content/site.css', ['styles']);
+});
