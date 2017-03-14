@@ -26,7 +26,7 @@ Install
 
 Restore nuget packages
 
-`dotnet restore`
+`nuget install`
 
 Restore npm packages
 
