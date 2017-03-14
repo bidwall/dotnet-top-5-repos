@@ -21,6 +21,23 @@ This solution uses...
 - nBuilder
 - gulp
 
-To use:- restore nuget packages, install npm packages, install bower packages and run gulpfile to minify css/js & setup fonts.
+Install
+------------
 
-> **Note:** You can find the .NET Core version of this web application forked [here](https://github.com/theshoreditch/Top5Repos)
+Restore nuget packages
+
+`dotnet restore`
+
+Restore npm packages
+
+`npm install`
+
+Restore bower packages
+
+`bower install`
+
+Restore static resources (minified css/js & bootstrap fonts)
+
+`gulp`
+
+> **Note:** You can find the .NET Core version of this web application [here](https://github.com/bidwall/Top5ReposCore)
