@@ -1,0 +1,12 @@
+branches:
+  only:
+  - ci
+
+configuration: Release
+
+before_build:
+  - nuget restore
+
+build:
+  project: Top5Repos.sln
+  verbosity: minimal
