@@ -1,6 +1,6 @@
 branches:
   only:
-  - ci
+  - appveyor-ci
 
 configuration: Release
 
