@@ -25,7 +25,7 @@ namespace WebApp.Controllers
                 return RedirectToAction("NoResultsFound", new { message = $"{username} does not exists"});
             }
 
-            var repos = _repository.GetReposForUserFromUrl(user.Repos_Url);
+            var repos = _repository.GetReposForUserFromUrl(user.ReposUrl);
 
             var model = new UserViewModel
             {

@@ -6,9 +6,9 @@ namespace Models
     {
         public string Name { get; set; }
         public string Location { get; set; }
-
         [JsonProperty("Avatar_url")]
         public string AvatarUrl { get; set; }
-        public string Repos_Url { get; set; }
+        [JsonProperty("Repos_Url")]
+        public string ReposUrl { get; set; }
     }
 }

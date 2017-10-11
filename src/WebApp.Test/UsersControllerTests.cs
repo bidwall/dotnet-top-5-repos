@@ -46,7 +46,7 @@ namespace WebApp.Test
             var user = Builder<User>.CreateNew().Build();
 
             _mockRepository.Setup(x => x.GetDetailsForUser(Username)).Returns(user);
-            _mockRepository.Setup(x => x.GetReposForUserFromUrl(user.Repos_Url)).Returns(new List<Repo>());
+            _mockRepository.Setup(x => x.GetReposForUserFromUrl(user.ReposUrl)).Returns(new List<Repo>());
 
             //Act
             var result = _usersController.Index(Username) as ViewResult;
