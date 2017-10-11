@@ -25,14 +25,14 @@ namespace WebApp.Controllers
                 return RedirectToAction("NoResultsFound", new { message = $"{username} does not exists"});
             }
 
-            var repos = _repository.GetReposForUserFromUrl(user.Repos_Url);
+            var repos = _repository.GetReposForUserFromUrl(user.ReposUrl);
 
             var model = new UserViewModel
             {
                 Name = user.Name,
                 Location = user.Location,
-                AvatarUrl = user.Avatar_url,
-                Repos = repos.OrderByDescending(x => x.StarGazers_Count).Take(5).ToList()
+                AvatarUrl = user.AvatarUrl,
+                Repos = repos.OrderByDescending(x => x.Stars).Take(5).ToList()
             };
 
             return View(model);

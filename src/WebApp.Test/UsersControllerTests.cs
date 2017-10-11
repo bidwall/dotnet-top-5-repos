@@ -46,7 +46,7 @@ namespace WebApp.Test
             var user = Builder<User>.CreateNew().Build();
 
             _mockRepository.Setup(x => x.GetDetailsForUser(Username)).Returns(user);
-            _mockRepository.Setup(x => x.GetReposForUserFromUrl(user.Repos_Url)).Returns(new List<Repo>());
+            _mockRepository.Setup(x => x.GetReposForUserFromUrl(user.ReposUrl)).Returns(new List<Repo>());
 
             //Act
             var result = _usersController.Index(Username) as ViewResult;
@@ -55,7 +55,7 @@ namespace WebApp.Test
             var userViewModel = result.Model as UserViewModel;
             userViewModel.Name.Should().Be(user.Name);
             userViewModel.Location.Should().Be(user.Location);
-            userViewModel.AvatarUrl.Should().Be(user.Avatar_url);
+            userViewModel.AvatarUrl.Should().Be(user.AvatarUrl);
         }
 
         [Test]
@@ -73,7 +73,7 @@ namespace WebApp.Test
             //Assert
             var userViewModel = result.Model as UserViewModel;
             userViewModel.Repos.Should().HaveCount(5);
-            userViewModel.Repos.Should().BeInDescendingOrder(x => x.StarGazers_Count);
+            userViewModel.Repos.Should().BeInDescendingOrder(x => x.Stars);
         }
     }
 }
