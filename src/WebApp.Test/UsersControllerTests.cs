@@ -73,7 +73,7 @@ namespace WebApp.Test
             //Assert
             var userViewModel = result.Model as UserViewModel;
             userViewModel.Repos.Should().HaveCount(5);
-            userViewModel.Repos.Should().BeInDescendingOrder(x => x.StarGazers_Count);
+            userViewModel.Repos.Should().BeInDescendingOrder(x => x.Stars);
         }
     }
 }

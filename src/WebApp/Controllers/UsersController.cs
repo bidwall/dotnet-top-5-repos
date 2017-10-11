@@ -32,7 +32,7 @@ namespace WebApp.Controllers
                 Name = user.Name,
                 Location = user.Location,
                 AvatarUrl = user.Avatar_url,
-                Repos = repos.OrderByDescending(x => x.StarGazers_Count).Take(5).ToList()
+                Repos = repos.OrderByDescending(x => x.Stars).Take(5).ToList()
             };
 
             return View(model);
