@@ -55,7 +55,7 @@ namespace WebApp.Test
             var userViewModel = result.Model as UserViewModel;
             userViewModel.Name.Should().Be(user.Name);
             userViewModel.Location.Should().Be(user.Location);
-            userViewModel.AvatarUrl.Should().Be(user.Avatar_url);
+            userViewModel.AvatarUrl.Should().Be(user.AvatarUrl);
         }
 
         [Test]

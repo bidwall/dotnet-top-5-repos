@@ -31,7 +31,7 @@ namespace WebApp.Controllers
             {
                 Name = user.Name,
                 Location = user.Location,
-                AvatarUrl = user.Avatar_url,
+                AvatarUrl = user.AvatarUrl,
                 Repos = repos.OrderByDescending(x => x.Stars).Take(5).ToList()
             };
 
